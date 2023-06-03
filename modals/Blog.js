@@ -25,10 +25,14 @@ const blogSchema = new mongoose.Schema({
   },
   content: {
     type: String,
+    required: true,
+    default: "" // Empty buffer as the default value
+  },
+  category: {
+    type: String,
     require: true,
-    default:''
+    default:'default'
   },
 },{timestamps:true});
-// mongoose.models={}
+mongoose.models={}
 export default mongoose.models.Blog || mongoose.model("Blog",blogSchema)
-// export default mongoose.model("User",UserSchema)
