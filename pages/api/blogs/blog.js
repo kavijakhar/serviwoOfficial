@@ -8,7 +8,7 @@ const handler = async( req, res)=> {
             let blogs=await Blog.find()
     res.status(200).json(blogs)
         } else if (req.method == "POST") {
-            const { title, authorName, authorEmail, description, excerpt, category, content } = req.body;
+            const { title, authorName, authorEmail, description, excerpt, category, content,slug,image } = req.body;
         
         
             try {
@@ -19,6 +19,8 @@ const handler = async( req, res)=> {
                 authorEmail,
                 description,
                 excerpt,
+                slug,
+                image,
                 content:JSON.stringify(content),
                 category,
               });

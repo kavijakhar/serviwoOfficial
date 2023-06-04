@@ -28,6 +28,16 @@ const blogSchema = new mongoose.Schema({
     required: true,
     default: "" // Empty buffer as the default value
   },
+  slug: {
+    type: String,
+    required: true,
+    unique:true // Empty buffer as the default value
+  },
+  image: {
+    type: String,
+    required: true,
+    default:"" // Empty buffer as the default value
+  },
   category: {
     type: String,
     require: true,
