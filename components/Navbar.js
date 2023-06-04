@@ -51,7 +51,7 @@ export default function Navbar() {
       <div className={`${styles.nav} ${dropdownToggled ? styles.toggle : ""} ${background || pathname !== '/' ? styles.active : ""} `} >
         <div>
           <Link href="/"  >
-            <Image src='/logo2.png' width={350} height={50} className={styles.navlogo} style={{ 'marginTop': '6px' }} alt="icon"></Image>
+            <Image src='/logo6.png' width={350} height={50} className={styles.navlogo} style={{ 'marginTop': '6px' }} alt="icon"></Image>
           </Link>
         </div>
         <div className={styles.navrow}>
