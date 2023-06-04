@@ -5,7 +5,7 @@ import Blog from '../../../modals/Blog'
 const handler = async( req, res)=> {
     try {
         if(req.method=='GET'){
-            let blogs=await Blog.find()
+            let blogs=await Blog.find().select('-content')
     res.status(200).json(blogs)
         } else if (req.method == "POST") {
             const { title, authorName, authorEmail, description, excerpt, category, content,slug,image } = req.body;
