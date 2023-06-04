@@ -11,7 +11,7 @@ const MainStates = (props) => {
   // get posts functions
   const getAllPosts = async () => {
     const res = await fetch(
-      `http://localhost:3000/api/blogs/blog`
+      `http://localhost:3000/api/blogs/blog?last_news_id=${lastNewsId ? lastNewsId : ""}`
     );
 
     const data = await res.json();
@@ -26,7 +26,7 @@ const MainStates = (props) => {
   const { isLoading, error, data, refetch, isFetching } = fetchListing;
 
   const fetchMoreData = async () => {
-    setLastNewsId(data.data[data.data.length - 1]._id);
+    setLastNewsId(data[data.length - 1]._id);
   };
   useEffect(() => {
     if (data) {
@@ -54,7 +54,8 @@ const MainStates = (props) => {
       value={{
         //header
         posts,
-        fetchListing
+        fetchListing,
+        fetchMoreData,
       }}
     >
       {props.children}
