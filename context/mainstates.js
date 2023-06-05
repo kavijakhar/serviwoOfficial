@@ -15,7 +15,7 @@ const MainStates = (props) => {
     );
 
     const data = await res.json();
-    return data;
+    return data; 
   };
   const fetchListing = useQuery("listData", getAllPosts, {
     refetchOnMount: false,
