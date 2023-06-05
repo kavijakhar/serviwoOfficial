@@ -19,27 +19,7 @@ export default function Blogitem({ blogdata }) {
 
     return (
         <div class="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-            <InfiniteScroll
-                dataLength={posts?.length || 0} //This is important field to render the next data
-                next={fetchMoreData}
-                hasMore={fetchListing?.data?.length > 4}
-                scrollableTarget="scrollableDiv"
-                loader={
-                    <div class="flex justify-center">
-                        <button
-                            type="button"
-                            class="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-100 dark:text-gray-900"
-                        >
-                            Loading more posts...
-                        </button>
-                    </div>
-                }
-                endMessage={
-                    <p className="text-center py-2">
-                        <b>Yay! You have seen it all</b>
-                    </p>
-                }
-            >
+
                 <div class="flex flex-wrap ">
 
                     <div class="w-full  h-3/2 shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/3 mx-4  " style={{ 'borderRadius': '10px', 'width': '450px' }}>
@@ -67,7 +47,7 @@ export default function Blogitem({ blogdata }) {
                         </div>
                     </div>
                 </div>
-            </InfiniteScroll>
+  
         </div>
 
 
