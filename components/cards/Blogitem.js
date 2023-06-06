@@ -18,28 +18,28 @@ export default function Blogitem({ blogdata }) {
 
 
     return (
-        <div class="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
+        <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
 
-                <div class="flex flex-wrap ">
+                <div className="flex flex-wrap ">
 
-                    <div class="w-full  h-3/2 shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/3 mx-4  " style={{ 'borderRadius': '10px', 'width': '450px' }}>
-                        <div class="max-w-[400px] mx-auto mb-10  ">
-                            <div class="rounded overflow-hidden mb-8 max-h-60 items-center">
+                    <div className="w-full  h-3/2 shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/3 mx-4  " style={{ 'borderRadius': '10px', 'width': '450px' }}>
+                        <div className="max-w-[400px] mx-auto mb-10  ">
+                            <div className="rounded overflow-hidden mb-8 max-h-60 items-center">
                                 <img src={blogdata.image} />
                             </div>
                             <div>
-                                <span class="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
+                                <span className="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
                                     {blogdata.authorName}
                                 </span>
-                                <span class="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
+                                <span className="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
                                     {formattedDate}
                                 </span>
                                 <h3>
-                                    <a href="javascript:void(0)" class="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
+                                    <a href="javascript:void(0)" className="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
                                         {title}
                                     </a>
                                 </h3>
-                                <p class=" text-2xl text-body-color" >
+                                <p className=" text-2xl text-body-color" >
                                     {description} ....    <Link type='button' href={`/blog/${blogdata.slug}`}   className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link>
                                 </p>
                                 

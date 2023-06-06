@@ -44,10 +44,9 @@ export default function Blogs(props) {
             posts.length !== 0 &&
             posts.map((blogitem, index) => {
               if (index < 6) {
-                console.log(posts);
                 return <Blogitem key={blogitem._id} blogdata={blogitem} />;
               }
-              return null; // Skip rendering for posts beyond the first six
+              return null; 
             })
           }
 
