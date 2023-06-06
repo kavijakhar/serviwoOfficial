@@ -9,7 +9,10 @@ export default function Slug({ blog }) {
   const router = useRouter()
   const { slug } = router.query
   console.log(slug)
-
+  function createMarkup(c) {
+    let a=JSON.parse(c)
+    return { __html: a };
+  }
   return (
     <div className='mt-20'>
       <section class="text-gray-600 body-font">
@@ -38,7 +41,11 @@ export default function Slug({ blog }) {
                 </div>
                 <div class=" sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                   <p class="leading-relaxed text-xl mb-4">{blog.description}</p>
-
+                  <div
+            dangerouslySetInnerHTML={createMarkup(
+              blog.content?blog.content:""
+            )}
+          ></div>
                 </div>
 
               </div>
