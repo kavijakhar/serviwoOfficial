@@ -10,7 +10,7 @@ export default function Slug({ blog }) {
   const { slug } = router.query
   console.log(slug)
   function createMarkup(c) {
-    let a=JSON.parse(c)
+    let a = JSON.parse(c)
     return { __html: a };
   }
   return (<>
@@ -18,7 +18,7 @@ export default function Slug({ blog }) {
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-col">
           <div class="lg:w-4/6 mx-auto">
-            <div class="rounded-lg sm:mx-0 mx-3  overflow-hidden" style={{'height':'300px'}}>
+            <div class="rounded-lg sm:mx-0 mx-3  overflow-hidden" style={{ 'height': '300px' }}>
               <img alt="content" class="object-cover object-center h-full w-full" src={blog.image} />
             </div>
             <div class="flex flex-col sm:flex-row mt-10">
@@ -42,10 +42,10 @@ export default function Slug({ blog }) {
                 <div class=" sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
                   <p class="leading-relaxed text-xl mb-4">{blog.description}</p>
                   <div className='container'
-            dangerouslySetInnerHTML={createMarkup(
-              blog.content?blog.content:""
-            )}
-          ></div>
+                    dangerouslySetInnerHTML={createMarkup(
+                      blog.content ? blog.content : ""
+                    )}
+                  ></div>
                 </div>
 
               </div>

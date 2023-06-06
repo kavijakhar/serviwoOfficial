@@ -1,8 +1,12 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useContext } from "react";
 import mainContext from "../context/MainContext";
-export default function Test() {
+import Link from "next/link";
+import { format, parseISO } from 'date-fns'
 
+
+
+export default function Test() {
   const { posts, fetchMoreData, fetchListing } = useContext(mainContext);
 
 
@@ -21,27 +25,6 @@ export default function Test() {
           </div>
         </div>
         <div class="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-          {/* <a
-            rel="noopener noreferrer"
-            href="#"
-            class="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-100 overflow-hidden"
-          >
-            <img
-              src="https://source.unsplash.com/random/480x360"
-              alt=""
-              class="object-cover w-full h-64 rounded sm:h-96 lg:col-span-5 dark:bg-gray-100 transform transition-transform duration-300 hover:scale-105"
-            />
-            <div class="p-6 space-y-2 lg:col-span-5">
-              <h3 class="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
-                Noster tincidunt reprimique ad pro
-              </h3>
-              <span class="text-xs dark:text-gray-900">February 19, 2021</span>
-              <p>
-                Ei delenit sensibus liberavisse pri. Quod suscipit no nam. Est
-                in graece fuisset, eos affert putent doctus id.
-              </p>
-            </div>
-          </a> */}
           <InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
@@ -63,33 +46,52 @@ export default function Test() {
               </p>
             }
           >
-            <section class="pt-3 lg:pt-[12px] pb-10 lg:pb-20">
+            <section class="pt-3 lg:pt-[12px] pb-10 sm:ml-40  lg:pb-20">
               <div class="container">
 
-                <div class="flex flex-wrap mx-6 sm:mx-0">
+                <div class="flex flex-wrap mx-6  sm:mx-0">
                   {posts.length !== 0 &&
                     posts.map((list) => {
+                      
+                      const date = parseISO(list.createdAt);
+                      const formattedDate = format(date, 'do MMM, yyyy');
+                      console.log(formattedDate)
+
+                      const maxdec = 20;
+                      const slicedec = list.description.split(' ').slice(0, maxdec).join(' ');
+                      const description = list.description.split(' ').length > slicedec ? slicedec + '...' : slicedec;
+
+                      const maxtitle = 7;
+                      const slicetit = list.title.split(' ').slice(0, maxtitle).join(' ');
+                      const title = list.title.split(' ').length > slicetit ? slicetit + '...' : slicetit;
+
+                      
                       return (
-                        <di class="w-full shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/4 mx-4  " key={list._id} style={{ 'borderRadius': '10px', 'width': '380px' }}>
-                          <div class="max-w-[370px] mx-auto mb-10   h-3/2">
-                            <div class="rounded overflow-hidden mb-8 max-h-80 items-center">
-                              <img src={list.image} />
+                        <div class="w-full shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/4 mx-4  " key={list._id} style={{ 'borderRadius': '10px', 'width': '380px' }}>
+                        <div class="max-w-[400px] mx-auto mb-10  ">
+                            <div class="rounded overflow-hidden mb-8 max-h-60 items-center">
+                                <img src={list.image} />
                             </div>
                             <div>
-                              <span class="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
-                                {list.date}
-                              </span>
-                              <h3>
-                                <a href="javascript:void(0)" class="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
-                                  {title}
-                                </a>
-                              </h3>
-                              <p class=" text-2xl text-body-color">
-                                {description}
-                              </p>
+                                <span class="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
+                                    {list.authorName}
+                                </span>
+                                <span class="bg-primary rounded inline-block text-center py-1 px-4 text-2xl leading-loose font-semibold text-gray-700 mb-5">
+                                    {formattedDate}
+                                </span>
+                                <h3>
+                                    <a href="javascript:void(0)" class="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
+                                        {title}..
+                                    </a>
+                                </h3>
+                                <p class=" text-2xl text-body-color" >
+                                    {description}...     <Link type='button' href={`/blog/${list.slug}`}   className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link>
+                                </p>
+                                
+                            
                             </div>
-                          </div>
-                        </di>
+                        </div>
+                    </div>
                       );
                     })}
                 </div>
