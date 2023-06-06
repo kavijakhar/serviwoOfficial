@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainContext from "./MainContext.js";
 import { useQuery } from "react-query";
 const MainStates = (props) => {
- 
+
   // listing status //
   // save post
   const [posts, setPosts] = useState([]);
@@ -15,7 +15,7 @@ const MainStates = (props) => {
     );
 
     const data = await res.json();
-    return data; 
+    return data;
   };
   const fetchListing = useQuery("listData", getAllPosts, {
     refetchOnMount: false,
@@ -33,7 +33,7 @@ const MainStates = (props) => {
       if (posts?.length === 0 || lastNewsId === null) {
         if (!isLoading && !error) {
           setPosts(data);
-          
+
         }
       } else {
         setPosts(posts.concat(data));
@@ -43,8 +43,8 @@ const MainStates = (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-        refetch();
-      
+      refetch();
+
     }, 1000);
   }, [lastNewsId]);
 

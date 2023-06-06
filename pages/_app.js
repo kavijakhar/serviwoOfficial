@@ -7,11 +7,11 @@ import { queryClient } from '../config'
 export default function App({ Component, pageProps }) {
   return <>
     <QueryClientProvider client={queryClient}>
-  <MainStates>
-  <Navbar/>
-   <Component {...pageProps} />
+      <MainStates>
+        <Navbar />
+        <Component {...pageProps} />
 
-  </MainStates>
-  </QueryClientProvider>
-   </>
+      </MainStates>
+    </QueryClientProvider>
+  </>
 }

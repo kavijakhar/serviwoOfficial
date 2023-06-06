@@ -4,6 +4,8 @@ import mainContext from "../context/MainContext";
 export default function Test() {
 
   const { posts, fetchMoreData, fetchListing } = useContext(mainContext);
+
+
   return (
     <>
       <section class=" dark:text-gray-900 pt-36">
@@ -79,11 +81,11 @@ export default function Test() {
                               </span>
                               <h3>
                                 <a href="javascript:void(0)" class="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
-                                  {list.title}
+                                  {title}
                                 </a>
                               </h3>
                               <p class=" text-2xl text-body-color">
-                                {list.description}
+                                {description}
                               </p>
                             </div>
                           </div>
