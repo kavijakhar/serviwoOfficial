@@ -4,10 +4,20 @@ import connectDb from '../../../midleware/mongoose'
 import Blog from '../../../modals/Blog'
 const handler = async( req, res)=> {
     try {
-        if(req.method=='GET'){
-            let blogs=await Blog.find().select('-content')
-    res.status(200).json(blogs)
-        } else if (req.method == "POST") {
+         if (req.method === 'GET') {
+      const { last_news_id } = req.query;
+
+      let query = Blog.find().select('-content');
+
+      if (last_news_id) {
+        query = query.where('_id').gt(last_news_id);
+      }
+
+      query = query.limit(5);
+
+      const blogs = await query.exec();
+      res.status(200).json(blogs);
+    }else if (req.method == "POST") {
             const { title, authorName, authorEmail, description, excerpt, category, content,slug,image } = req.body;
         
         

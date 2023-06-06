@@ -71,9 +71,9 @@ export default function Navbar() {
               <ul>
                 <li>
                   <Link href="/">Home</Link>
-                  <Link href="/routes/about">About</Link>
-                  <Link href="/routes/blogs">Blogs</Link>
-                  <Link href="/routes/team">Team</Link>
+                  <Link href="/#about">About</Link>
+                  <Link href="/#blogs">Blogs</Link>
+                  <Link href="/#team">Team</Link>
                 </li>
               </ul>
             </nav>
