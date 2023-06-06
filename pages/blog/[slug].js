@@ -14,7 +14,7 @@ export default function Slug({ blog }) {
     return { __html: a };
   }
   return (<>
-    <div className='mt-20'>
+    <div className='mt-20 my-component'>
       <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex flex-col">
           <div class="lg:w-4/6 mx-auto">
