@@ -11,7 +11,7 @@ const MainStates = (props) => {
   // get posts functions
   const getAllPosts = async () => {
     const res = await fetch(
-      `http://localhost:3000/api/blogs/blog?last_news_id=${lastNewsId ? lastNewsId : ""}`
+      `${process.env.NEXT_PUBLIC_AUTH_KEY}/blogs/blog?last_news_id=${lastNewsId ? lastNewsId : ""}`
     );
 
     const data = await res.json();

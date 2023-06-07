@@ -59,7 +59,7 @@ export default function Slug({ blog }) {
 export async function getServerSideProps(context) {
   // Fetch data from external data source
   const { slug } = context.params
-  const res = await fetch(`http://localhost:3000/api/blogs/blogdetails?slug=${slug}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_KEY}/blogs/blogdetails?slug=${slug}`)
   const blog = await res.json()
 
   return { props: { blog } }

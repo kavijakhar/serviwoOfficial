@@ -31,19 +31,8 @@ export default function Blogs(props) {
             })
           }
         </div>
-        <div className='text-center text-4xl text-gray-500'><h1>For View All Blogs<FaHandPointDown className='text-center m-auto mt-2' /><Link className={`${style.btn} rounded-md`} type='button' href={'/allblogs'} >Click here</Link></h1> </div>
+    {    posts.length !== 0 &&  <div className='text-center text-4xl text-gray-500'><h1>For View All Blogs<FaHandPointDown className='text-center m-auto mt-2' /><Link className={`${style.btn} rounded-md`} type='button' href={'/allblogs'} >Click here</Link></h1> </div>}
       </section>
     </InfiniteScroll>
   )
 }
-export async function getServerSideProps(context) {
-  let res = await fetch("http://localhost:3000/api/blogs/blog", {
-    method: "GET",
-
-  })
-  let allBlogs = await res.json()
-  return {
-    props: { allBlogs: JSON.parse(JSON.stringify(allBlogs)) },
-  };
-}
-
