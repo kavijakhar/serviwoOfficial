@@ -25,7 +25,7 @@ export default function Test() {
           </div>
         </div>
         <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-          <InfiniteScroll
+       { posts.length !== 0 &&  <InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
@@ -98,7 +98,7 @@ export default function Test() {
             </section>
 
 
-          </InfiniteScroll>
+          </InfiniteScroll>}
         </div>
 
       </section>
