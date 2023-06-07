@@ -65,7 +65,7 @@ export default function Test() {
 
 
                       return (
-                        <div className="w-full shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/4 mx-4  " key={list._id} style={{ 'borderRadius': '10px', 'width': '380px' }}>
+                        <Link href={`/blog/${list.slug}`} className="w-full shadow-lg hover:scale-105  px-5 my-10 md:w-1/2 lg:w-1/4 mx-4  " key={list._id} style={{ 'borderRadius': '10px', 'width': '380px' }}>
                           <div className="max-w-[400px] mx-auto mb-10  ">
                             <div className="rounded overflow-hidden mb-8 max-h-60 items-center">
                               <img src={list.image} />
@@ -78,18 +78,19 @@ export default function Test() {
                                 {formattedDate}
                               </span>
                               <h3>
-                                <Link className="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
+                                <div className="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
                                   {title}..
-                                </Link>
+                                </div>
                               </h3>
                               <p className=" text-2xl text-body-color" >
-                                {description}...     <Link type='button' href={`/blog/${list.slug}`} className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link>
+                                {description}...   
+                                  {/* <Link href={`/blog/${list.slug}`} className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link> */}
                               </p>
 
 
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       );
                     })}
                 </div>
