@@ -35,9 +35,9 @@ export default function Blogitem({ blogdata }) {
                                     {formattedDate}
                                 </span>
                                 <h3>
-                                    <a href="javascript:void(0)" className="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
+                                    <Link href={'#'} className="font-semibold text-2xl sm:text-2xl lg:text-3xl xl:text-3xl mb-4 inline-block text-dark hover:text-primary">
                                         {title}
-                                    </a>
+                                    </Link>
                                 </h3>
                                 <p className=" text-2xl text-body-color" >
                                     {description} ....    <Link type='button' href={`/blog/${blogdata.slug}`}   className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link>
