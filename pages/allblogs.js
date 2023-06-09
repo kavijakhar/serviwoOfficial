@@ -17,7 +17,7 @@ export default function Test() {
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
 
-              <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-gray-600  ">
+              <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-gray-600  " style={{' line-height': '1'}}>
                 Are you a passionate reader? Read Our Latest Blogs
               </h2>
 
@@ -25,7 +25,7 @@ export default function Test() {
           </div>
         </div>
         <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-          {posts.length !== 0 && <InfiniteScroll
+       { posts.length !== 0 &&  <InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
