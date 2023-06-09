@@ -18,14 +18,14 @@ export default function Test() {
             <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
 
               <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-gray-600  ">
-                Welcome To Our Blogs
+                Are you a passionate reader? Read Our Latest Blogs
               </h2>
 
             </div>
           </div>
         </div>
         <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-       { posts.length !== 0 &&  <InfiniteScroll
+          {posts.length !== 0 && <InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
@@ -83,8 +83,8 @@ export default function Test() {
                                 </div>
                               </h3>
                               <p className=" text-2xl text-body-color" >
-                                {description}...   
-                                  {/* <Link href={`/blog/${list.slug}`} className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link> */}
+                                {description}...
+                                {/* <Link href={`/blog/${list.slug}`} className='bg-gray-500 p-2  text-white rounded-3xl font-medium my-3'>Read More</Link> */}
                               </p>
 
 
