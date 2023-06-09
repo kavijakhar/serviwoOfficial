@@ -36,11 +36,11 @@ export default function Slug({ blog }) {
               </div>
               <div className=''>
                 <div className=" sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                  <h2 className="leading-relaxed text-4xl mb-4">{blog.title}</h2>
+                  <h1 className="leading-relaxed text-4xl mb-4">{blog.title}</h1>
 
                 </div>
                 <div className=" sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-                  <h4 className="leading-relaxed text-xl mb-4">{blog.description}</h4>
+                  <h3 className="leading-relaxed text-xl mb-4">{blog.description}</h3>
                   <div className='container'
                     dangerouslySetInnerHTML={createMarkup(
                       blog.content ? blog.content : ""
