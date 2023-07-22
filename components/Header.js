@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 export default function Header() {
   return (
     <section id="home" className={styles.home}>
 
     <h1 className={styles.banner}>Logo design & development services</h1>
     <h3 className={styles.slogan}>you have a vision. we have a team to get you there</h3>
-    <a href="#"><button>get started</button></a>
+    <Link href="https://wa.link/7lautn" target='_blank'><button>get started</button></Link>
     
     
     <div className={`${styles.wave} ${styles.wave1}`}></div>
