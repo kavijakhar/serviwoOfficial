@@ -63,6 +63,7 @@ export default function Navbar() {
                   <a href="#about">About</a>
                   <a href="#blogs">Blogs</a>
                   <a href="#team">Team</a>
+                  <Link href="/logos">Logo</Link>
                 </li>
               </ul>
             </nav> :
@@ -74,6 +75,7 @@ export default function Navbar() {
                   <Link href="/#about">About</Link>
                   <Link href="/#blogs">Blogs</Link>
                   <Link href="/#team">Team</Link>
+                  <Link href="/logos">Logo</Link>
                 </li>
               </ul>
             </nav>
