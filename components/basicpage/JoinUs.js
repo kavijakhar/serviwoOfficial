@@ -1,6 +1,8 @@
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 export default function JoinUs() {
+  const router=useRouter()
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -56,7 +58,8 @@ export default function JoinUs() {
         progress: undefined,
         theme: "light",
       });
-      // router.push("/orders/orders")
+
+      router.push("/")
     } else {
       toast.error(`🦄 ${json.error}`, {
         position: "top-right",

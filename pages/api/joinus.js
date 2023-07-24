@@ -3,7 +3,7 @@ import JoinUser from "../../modals/JoinUsers"
 const handler = async (req, res) => {
   if (req.method == "POST") {
 try {
-  if(req.body.phone.length>13 || Number.isInteger(req.body.phone)){
+  if(req.body.phone.length!==10 || Number.isInteger(req.body.phone)){
     res.status(500).json({success:false,"error":"Please enter your 10 digit phone number"})
     return
   }
