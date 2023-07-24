@@ -59,9 +59,9 @@ export default function Navbar() {
             <nav>
               <ul>
                 <li>
-                  <a href="#home">Home</a>
-                  <a href="#about">About</a>
-                  <a href="#blogs">Blogs</a>
+                  <Link href="#home">Home</Link>
+                  <Link href="#about">About</Link>
+                  <Link href="#blogs">Blogs</Link>
                   <Link href="/logos">Logo</Link>
                   <Link href="/joinUs">Join Us</Link>
                 </li>
