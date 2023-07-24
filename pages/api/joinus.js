@@ -1,5 +1,4 @@
 import connectDb from '../../midleware/mongoose'
-import User from "../../modals/User"
 import JoinUser from "../../modals/JoinUsers"
 const handler = async (req, res) => {
   if (req.method == "POST") {
