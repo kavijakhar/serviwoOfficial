@@ -6,7 +6,8 @@ import { queryClient } from '../config'
 import LoadingBar from 'react-top-loading-bar'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }) {
       <MainStates>
         <LoadingBar color='#A81AFF' waitingTime={400} progress={progress} onLoaderFinished={() => { setProgress(0) }} />
         <Navbar />
+        <ToastContainer/>
         <Component {...pageProps} />
 
       </MainStates >

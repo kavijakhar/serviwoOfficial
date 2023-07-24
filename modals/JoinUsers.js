@@ -8,7 +8,6 @@ const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    // unique:true
   },
   password: {
     type: String,
@@ -29,12 +28,7 @@ const UserSchema = new mongoose.Schema({
     require: true,
     default:''
   },
-  designation: {
-    type: String,
-    require: true,
-    default:''
-  },
 },{timestamps:true});
 // mongoose.models={}
-export default mongoose.models.User || mongoose.model("User",UserSchema)
+export default mongoose.models.JoinUser || mongoose.model("JoinUser",UserSchema)
 // export default mongoose.model("User",UserSchema)
