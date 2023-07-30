@@ -24,15 +24,15 @@ export default function Projects() {
     </div>
 
     <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg">
-      <img src="/projects/house-fam.webp" alt="house-fam project" width={510} />
+      <img src="/projects/booking.webp" alt="house-fam project" width={510} />
     </div>
 
 
     <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg ">
-      <img src="/projects/Gadgetst.webp" alt="house-fam project" width={510} />
-    </div>
     <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg md:!w-full">
       <img src="/projects/Gadgetst.webp" alt="house-fam project" width={510} />
+    </div>
+      <img src="/projects/vedessi.webp" alt="house-fam project" width={510} />
     </div>
 
   </div>
