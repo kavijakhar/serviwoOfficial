@@ -18,7 +18,7 @@ export default function Projects() {
 
   </div> */}
 
-  <div className={`${styles.row} flex-nowrap`}>
+  <div className={`${styles.row} flex-nowrap !items-start`}>
     <div className="image p-10 md:!w-full bg-[#efe1ef] m-5 shadow-lg ">
       <img src="/projects/house-fam.webp" alt="house-fam project " width={510} />
     </div>
@@ -28,10 +28,10 @@ export default function Projects() {
     </div>
 
 
-    <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg ">
     <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg md:!w-full">
       <img src="/projects/Gadgetst.webp" alt="house-fam project" width={510} />
     </div>
+    <div className="image p-10 bg-[#efe1ef] m-5 shadow-lg ">
       <img src="/projects/vedessi.webp" alt="house-fam project" width={510} />
     </div>
 
