@@ -3,7 +3,7 @@ import { RiSeoFill } from 'react-icons/ri';
 import { BsChatSquareDots,BsWallet2,BsFunnelFill} from 'react-icons/bs';
 import { RiAdvertisementLine } from 'react-icons/ri';
 import { SiTaichigraphics ,SiXdadevelopers} from 'react-icons/si';
-import { PiIdentificationCardThin } from 'react-icons/Pi';
+import { PiIdentificationCardThin } from 'react-icons/pi';
 
 const Services = () => {
   return (
