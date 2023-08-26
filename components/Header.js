@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <section id="home" className={styles.home}>
 
-    <h1 className={styles.banner}>Logo design & development services</h1>
+    <h1 className={styles.banner}>Web design & development services</h1>
     <h3 className={styles.slogan}>you have a vision. we have a team to get you there</h3>
     <Link href="https://wa.link/7lautn" target='_blank'><button>get started</button></Link>
     
