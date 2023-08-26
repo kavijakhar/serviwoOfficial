@@ -9,11 +9,11 @@ export default function About() {
 
       <div className={styles.row}>
 
-        <div className={styles.content}>
-          <h3   style={{'line-height': 'inherit'}}>We build Logo Design that build your busines</h3>
-          <p>LOGO HI LOGO is spreading faster than fire  now past 3443 business logo designed! WE provide Professional, Premium  & LUXURY 2D/3D logo</p>
-          <p>Our team of dedicated designers combines their creativity and expertise to craft visually captivating logos that leave a lasting impression. We understand the power of a well-designed logo in establishing a brands identity and setting it apart from the competition.</p>
-          <Link href={"/abouts"}><button className={styles.btn}>read more</button></Link>
+        <div className={`md:max-w-[60%] ${styles.content}`}>
+          <h3   style={{'lineHeight': 'inherit'}}>Empowering Your Digital Presence: Discover Serviwo&apos;s Unique Web Development Services</h3>
+          <p>Elevate Your Brand, Elevate Your Success</p>
+          <p>Serviwo is your dedicated partner in the world of web development, offering a distinctive blend of creativity and technology. We are your catalyst for digital transformation, turning ordinary websites into exceptional online experiences. Whether you&apos;re an entrepreneur, a startup, or an established business, Serviwo crafts websites that not only look remarkable but also function seamlessly. Our expertise spans a wide array of services, from designing engaging e-commerce platforms to user-friendly corporate websites. With Serviwo, you&apos;re not just getting a website – you&apos;sre gaining a strategic digital asset that propels your brand forward. Welcome to a new era of web development, welcome to Serviwo.</p>
+          <Link href={"/abouts"}><button className={styles.btn}>Know More</button></Link>
         </div>
 
         <div className="image">

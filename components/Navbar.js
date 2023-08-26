@@ -46,6 +46,17 @@ export default function Navbar() {
       }
     }
   }
+  function smoothScroll(targetId) {
+    const target = document.getElementById(targetId);
+  
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop,
+        behavior: "smooth", // Add smooth scrolling behavior
+      });
+    }
+  }
+  
   return (
     <>
       <div className={`${styles.nav} ${dropdownToggled ? styles.toggle : ""} ${background || pathname !== '/' ? styles.active : ""} `} >
@@ -59,9 +70,10 @@ export default function Navbar() {
             <nav>
               <ul>
                 <li>
-                  <Link href="#home">Home</Link>
-                  <Link href="#about">About</Link>
-                  <Link href="#blogs">Blogs</Link>
+                  <a type='button' onClick={() => smoothScroll("home")}>Home</a>
+                  <a type='button' onClick={() => smoothScroll("about")}>About</a>
+                  <a type='button' onClick={() => smoothScroll("Services")}>Services</a>
+                  <a type='button' onClick={() => smoothScroll("blogs")}>Blogs</a>
                   <Link href="/logos">Logo</Link>
                   <Link href="/joinUs">Join Us</Link>
                 </li>
@@ -72,8 +84,9 @@ export default function Navbar() {
               <ul>
                 <li>
                   <Link href="/">Home</Link>
-                  <Link href="/#about">About</Link>
-                  <Link href="/#blogs">Blogs</Link>
+                  <Link href="/aboutUs">About</Link>
+                  <Link href="/services">Services</Link>
+                  <Link href="/allblogs">Blogs</Link>
                   <Link href="/logos">Logo</Link>
                   <Link href="/joinUs">Join Us</Link>
                 </li>
