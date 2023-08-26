@@ -10,7 +10,7 @@ export default function About() {
       <div className={styles.row}>
 
         <div className={styles.content}>
-          <h3   style={{'line-height': 'inherit'}}>We build Logo Design that build your busines</h3>
+          <h3   style={{'lineHeight': 'inherit'}}>We build Logo Design that build your busines</h3>
           <p>LOGO HI LOGO is spreading faster than fire  now past 3443 business logo designed! WE provide Professional, Premium  & LUXURY 2D/3D logo</p>
           <p>Our team of dedicated designers combines their creativity and expertise to craft visually captivating logos that leave a lasting impression. We understand the power of a well-designed logo in establishing a brands identity and setting it apart from the competition.</p>
           <Link href={"/abouts"}><button className={styles.btn}>read more</button></Link>
