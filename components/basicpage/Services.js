@@ -132,7 +132,7 @@ const ServiceBlock = ({ icon, title, description }) => {
       <div className="py-8 px-12 mb-12 bg-white border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 shadow-lg">
         <div className={`inline-block text-gray-900 mb-45  ${cardtoggle?styles.toggle:"" } ${styles.fa}`} >
           {/* icon */}
-          <IconComponent className={`text-7xl text-[#ff4d1c]`} />
+          <IconComponent className={`text-7xl text-[#6c5ce7]`} />
         </div>
         <h3 className="text-lg leading-normal mb-2 font-semibold text-black">
           {title}
