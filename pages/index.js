@@ -18,11 +18,11 @@ export default function Home() {
   {/* Open Graph Tags */}
   <meta property="og:title" content="Serviwo - Professional Web Development Services" />
   <meta property="og:description" content="Transforming businesses through professional web development. Contact Serviwo for custom web solutions that drive online success." />
-  <meta property="og:image" content="https://example.com/your-image.jpg" />
-  <meta property="og:url" content="https://serviwo.com/abouts" />
+  <meta property="og:image" content="/logo3.png" />
+  <meta property="og:url" content="https://serviwo.com" />
   
   {/* Canonical Link */}
-  <link rel="canonical" href="https://serviwo.com/abouts" />
+  <link rel="canonical" href="https://serviwo.com" />
   
   {/* Viewport and Favicon */}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
