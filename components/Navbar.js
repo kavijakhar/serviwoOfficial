@@ -55,31 +55,18 @@ export default function Navbar() {
           </Link>
         </div>
         <div className={styles.navrow}>
-          {pathname === "/" ?
+          
             <nav>
               <ul>
                 <li>
-                  <Link href="#home">Home</Link>
-                  <Link href="#about">About</Link>
-                  <Link href="#blogs">Blogs</Link>
+                  <Link href={pathname==='/'?"#home":"/"}>Home</Link>
+                  <Link href={pathname==='/'?"#about":"/abouts"}>About</Link>
+                  <Link href={pathname==='/'?"#blogs":"/allblogs"}>Blogs</Link>
                   <Link href="/logos">Logo</Link>
                   <Link href="/joinUs">Join Us</Link>
                 </li>
               </ul>
-            </nav> :
-
-            <nav>
-              <ul>
-                <li>
-                  <Link href="/">Home</Link>
-                  <Link href="/#about">About</Link>
-                  <Link href="/#blogs">Blogs</Link>
-                  <Link href="/logos">Logo</Link>
-                  <Link href="/joinUs">Join Us</Link>
-                </li>
-              </ul>
-            </nav>
-          }
+            </nav> 
         </div>
         <div className={`${styles.navburgur} dropbtn`} onClick={navToggle}  >
           <div className={`dropbtn ${styles.line1}`} onClick={navToggle}></div>
