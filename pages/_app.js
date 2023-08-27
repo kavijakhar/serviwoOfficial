@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head'
+import Footer from '../components/Footer'
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -41,14 +42,18 @@ export default function App({ Component, pageProps }) {
   
   {/* Viewport and Favicon */}
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" href="/serviwoFavicon-250X250.png" sizes="250x250" type="image/png"/>
-<link rel="icon" href="/serviwoFavicon-500X500.png" sizes="500x500" type="image/png"/>
-  <link rel="icon" href="/serviwoFavicon.png"  sizes="688x688" type="image/png"/>
+<link rel="icon" href="/favicons.ico" sizes="250x250" type="image/png"/>
+<link rel="icon" href="/favicons.ico" sizes="500x500" type="image/png"/>
+  <link rel="icon" href="/favicons.ico"  sizes="688x688" type="image/png"/>
 
   {/* Font Awesome Styles */}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
 
- 
+  <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png" // Path to your Apple Touch Icon image
+        />
 
 </Head>
     <QueryClientProvider client={queryClient}>
@@ -57,7 +62,7 @@ export default function App({ Component, pageProps }) {
         <Navbar />
         <ToastContainer/>
         <Component {...pageProps} />
-
+        <Footer />
       </MainStates >
     </QueryClientProvider>
   </>

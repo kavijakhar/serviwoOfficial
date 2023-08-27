@@ -76,16 +76,16 @@ export default function JoinUs() {
   return (
     <>
       {" "}
-      <div className="container m-auto mt-40">
+      <div className="container m-auto mt-40 mb-40">
         <h1 className="font-bold text-3xl my-8 text-center">Join Us</h1>
         <h2 className="font-bold text-xl my-4">Details</h2>
-        <div className="mx-auto">
+        <div className="mx-auto ">
           <form action="post" onSubmit={OnSubmit}>
             <div className="px-4  md:w-3/4 sm:w-full lg:w-3/4   flex justify-between ">
-              <div className="w-[32vh] md:w-[42vh] mb-4">
+              <div className="w-[32vh] md:w-[42vh] mb-4 ">
                 <label
                   htmlFor="name"
-                  className="leading-7 text-sm text-gray-600"
+                  className="leading-7 text-lg text-gray-600"
                 >
                   name
                 </label>
@@ -102,7 +102,7 @@ export default function JoinUs() {
               <div className="w-[32vh] md:w-[42vh] mb-4">
                 <label
                   htmlFor="email"
-                  className="leading-7 text-sm text-gray-600"
+                  className="leading-7 text-lg text-gray-600"
                 >
                   Email
                 </label>
@@ -120,7 +120,7 @@ export default function JoinUs() {
             <div className=" px-4  md:w-3/4 sm:w-full lg:w-3/4  mb-4">
               <label
                 htmlFor="email"
-                className="leading-7 text-sm text-gray-600"
+                className="leading-7 text-lg text-gray-600"
               >
                 Address
               </label>
@@ -137,7 +137,7 @@ export default function JoinUs() {
               <div className="w-[32vh] md:w-[42vh]mb-4">
                 <label
                   htmlFor="phone"
-                  className="leading-7 text-sm text-gray-600"
+                  className="leading-7 text-lg text-gray-600"
                 >
                   Phone
                 </label>
@@ -155,7 +155,7 @@ export default function JoinUs() {
               <div className=" w-[32vh] md:w-[42vh] mb-4">
                 <label
                   htmlFor="pincode"
-                  className="leading-7 text-sm text-gray-600"
+                  className="leading-7 text-lg text-gray-600"
                 >
                   Pincode
                 </label>
@@ -175,7 +175,7 @@ export default function JoinUs() {
               <div className=" w-[32vh] md:w-[42vh] mb-4">
                 <label
                   htmlFor="designation"
-                  className="leading-7 text-sm text-gray-600"
+                  className="leading-7 text-lg text-gray-600"
                 >
                   Designation
                 </label>
@@ -191,8 +191,8 @@ export default function JoinUs() {
               </div>
             </div>
             <div className="px-4 w md:w-3/4 sm:w-full lg:w-3/4  flex justify-between ">
-              <div className=" w-[32vh] md:w-[42vh] mb-4">
-                <button  type="submit" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              <div className=" w-[32vh] md:w-[42vh] mb-4 text-lg">
+                <button  type="submit" class="hover:bg-transparent bg-blue-500 hover:text-blue-700 font-semibold text-white py-2 px-4 border hover:border-blue-500 border-transparent rounded">
                 Submit
                 </button>
               </div>
