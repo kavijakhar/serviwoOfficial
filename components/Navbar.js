@@ -72,7 +72,7 @@ export default function Navbar() {
                 <li>
                   <a type='button' onClick={() => smoothScroll("home")} className='cursor-pointer'>Home</a>
                   <a type='button' onClick={() => smoothScroll("about") }  className='cursor-pointer'>About</a>
-                  <a type='button' onClick={() => smoothScroll("Services")}  className='cursor-pointer'>Services</a>
+                  <Link href="/services">Services</Link>
                   <a type='button' onClick={() => smoothScroll("blogs")}  className='cursor-pointer'>Blogs</a>
                   <Link href="/logos">Logo</Link>
                   <Link href="/joinUs">Join Us</Link>
