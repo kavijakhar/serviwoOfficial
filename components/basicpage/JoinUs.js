@@ -76,48 +76,47 @@ export default function JoinUs() {
   return (
     <>
       {" "}
-      <div className="container m-auto mt-40 mb-40">
+      <div className="container md:mx-auto px-20 min-h-screen  mt-36  p-4 md:shadow-md flex-grow">
         <h1 className="font-bold text-3xl my-8 text-center">Join Us</h1>
-        <h2 className="font-bold text-xl my-4">Details</h2>
-        <div className="mx-auto ">
-          <form action="post" onSubmit={OnSubmit}>
-            <div className="px-4  md:w-3/4 sm:w-full lg:w-3/4   flex justify-between ">
-              <div className="w-[32vh] md:w-[42vh] mb-4 ">
-                <label
-                  htmlFor="name"
-                  className="leading-7 text-lg text-gray-600"
-                >
-                  name
-                </label>
-                <input
-                  required
-                  type="name"
-                  value={credentials.name}
-                  onChange={changeCredentials}
-                  id="name"
-                  name="name"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-              <div className="w-[32vh] md:w-[42vh] mb-4">
-                <label
-                  htmlFor="email"
-                  className="leading-7 text-lg text-gray-600"
-                >
-                  Email
-                </label>
-                <input
-                  required
-                  type="email"
-                  value={credentials.email}
-                  onChange={changeCredentials}
-                  id="email"
-                  name="email"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>{" "}
+        <form className="mx-auto md:w-3/4 lg:w-3/4 " onSubmit={OnSubmit}>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="col-span-2 mb-4 md:col-span-1">
+              <label
+                htmlFor="name"
+                className="leading-7 text-lg text-gray-600"
+              >
+                name
+              </label>
+              <input
+                required
+                type="name"
+                value={credentials.name}
+                onChange={changeCredentials}
+                id="name"
+                name="name"
+                placeholder="Name"
+                className="w-full  bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl  outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
+              />
             </div>
-            <div className=" px-4  md:w-3/4 sm:w-full lg:w-3/4  mb-4">
+            <div className="col-span-2 mb-4 md:col-span-1">
+              <label
+                htmlFor="email"
+                className="leading-7 text-lg text-gray-600"
+              >
+                Email
+              </label>
+              <input
+                required
+                type="email"
+                value={credentials.email}
+                onChange={changeCredentials}
+                placeholder="Email"
+                id="email"
+                name="email"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
+              />
+            </div>{" "}
+            <div className="col-span-2 mb-4">
               <label
                 htmlFor="email"
                 className="leading-7 text-lg text-gray-600"
@@ -130,75 +129,74 @@ export default function JoinUs() {
                 value={credentials.address}
                 onChange={changeCredentials}
                 name="address"
-                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                placeholder="Address"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl  outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
               />
             </div>
-            <div className="px-4  md:w-3/4 sm:w-full lg:w-3/4  flex justify-between ">
-              <div className="w-[32vh] md:w-[42vh]mb-4">
-                <label
-                  htmlFor="phone"
-                  className="leading-7 text-lg text-gray-600"
-                >
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  placeholder="Enter your phone number"
-                  required
-                  value={credentials.phone}
-                  onChange={changeCredentials}
-                  id="phone"
-                  name="phone"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
-              <div className=" w-[32vh] md:w-[42vh] mb-4">
-                <label
-                  htmlFor="pincode"
-                  className="leading-7 text-lg text-gray-600"
-                >
-                  Pincode
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={credentials.pincode}
-                  onChange={changeCredentials}
-                  id="pincode"
-                  name="pincode"
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
+            <div className="col-span-2 mb-4 md:col-span-1">
+              <label
+                htmlFor="phone"
+                className="leading-7 text-lg text-gray-600"
+              >
+                Phone
+              </label>
+              <input
+                type="tel"
+                required
+                value={credentials.phone}
+                onChange={changeCredentials}
+                placeholder="Phone"
+                id="phone"
+                name="phone"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl  outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
+              />
             </div>
-
-            <div className="px-4 w md:w-3/4 sm:w-full lg:w-3/4  flex justify-between ">
-              <div className=" w-[32vh] md:w-[42vh] mb-4">
-                <label
-                  htmlFor="designation"
-                  className="leading-7 text-lg text-gray-600"
-                >
-                  Designation
-                </label>
-                <input
-                  type="text"
-                  required
-                  id="designation"
-                  name="designation"
-                  value={credentials.designation}
-                  onChange={changeCredentials}
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
-              </div>
+            <div className="col-span-2 mb-4 md:col-span-1">
+              <label
+                htmlFor="pincode"
+                className="leading-7 text-lg text-gray-600"
+              >
+                Pincode
+              </label>
+              <input
+                type="text"
+                required
+                value={credentials.pincode}
+                onChange={changeCredentials}
+                placeholder="Pincode"
+                id="pincode"
+                name="pincode"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl  outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
+              />
             </div>
-            <div className="px-4 w md:w-3/4 sm:w-full lg:w-3/4  flex justify-between ">
-              <div className=" w-[32vh] md:w-[42vh] mb-4 text-lg">
-                <button  type="submit" class="hover:bg-transparent bg-blue-500 hover:text-blue-700 font-semibold text-white py-2 px-4 border hover:border-blue-500 border-transparent rounded">
-                Submit
-                </button>
-              </div>
+            <div className="col-span-2">
+              <label
+                htmlFor="designation"
+                className="leading-7 text-lg text-gray-600"
+              >
+                Designation
+              </label>
+              <input
+                type="text"
+                required
+                id="designation"
+                name="designation"
+                value={credentials.designation}
+                onChange={changeCredentials}
+                placeholder="Designation"
+                className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-xl  outline-none text-gray-700 py-4 px-3 transition-colors duration-200 ease-in-out"
+              />
             </div>
-          </form>
-        </div>
+          </div>
+          <div className="flex justify-center mt-4 ">
+            <button
+              type="submit"
+              className="hover:bg-transparent bg-blue-500 hover:text-blue-700 font-medium text-white py-2 px-8 border hover:border-blue-500 border-transparent text-3xl rounded"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );
