@@ -6,6 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import style from '../../styles/basicpage/About.module.css'
 import { FaHandPointDown } from 'react-icons/fa';
 import Link from 'next/link';
+import BlogsSkeleton from '../skeletons/BlogsSkeleton';
 
 export default function Blogs(props) {
   const { posts, fetchMoreData, fetchListing } = useContext(mainContext)
@@ -30,8 +31,12 @@ export default function Blogs(props) {
               return null;
             })
           }
+          {  fetchListing.isLoading || fetchListing.isFetching &&
+            <BlogsSkeleton/>
+          }
         </div>
     {    posts.length !== 0 &&  <div className='text-center text-4xl text-gray-500'><h1>For View All Blogs<FaHandPointDown className='text-center m-auto mt-2' /><Link className={`${style.btn} rounded-md`} type='button' href={'/allblogs'} >Click here</Link></h1> </div>}
+    
       </section>
     </InfiniteScroll>
   )

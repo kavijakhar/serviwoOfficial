@@ -3,12 +3,21 @@ import { useContext } from "react";
 import mainContext from "../context/MainContext";
 import Link from "next/link";
 import { format, parseISO } from 'date-fns'
+import BlogsSkeleton from "../components/skeletons/BlogsSkeleton";
+import { useEffect } from "react";
 
 
 
 export default function Test() {
   const { posts, fetchMoreData, fetchListing } = useContext(mainContext);
 
+  useEffect(() => {
+  
+    console.log('first',fetchListing.isFetching);
+    
+
+
+}, [fetchListing.isFetching]);
 
   return (
     <>
@@ -17,7 +26,7 @@ export default function Test() {
           <div className="w-full px-4">
             <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
 
-              <h2 className="font-bold text-3xl sm:text-4xl md:text-[40px] text-gray-600  " style={{' line-height': '1'}}>
+              <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{' line-height': '1'}}>
                 Are you a passionate reader? Read Our Latest Blogs
               </h2>
 
@@ -25,19 +34,14 @@ export default function Test() {
           </div>
         </div>
         <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-       { posts.length !== 0 &&  <InfiniteScroll
+       {   <InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
             scrollableTarget="scrollableDiv"
             loader={
               <div className="flex justify-center">
-                <button
-                  type="button"
-                  className="px-6 py-3 text-sm rounded-md hover:underline dark:bg-gray-100 dark:text-gray-900"
-                >
-                  Loading more posts...
-                </button>
+             
               </div>
             }
             endMessage={
@@ -47,9 +51,9 @@ export default function Test() {
             }
           >
             <section className="pt-3 lg:pt-[12px] pb-10 sm:ml-40  lg:pb-20">
-              <div className="container">
+              <div className="container m-auto">
 
-                <div className="flex flex-wrap mx-6  sm:mx-0">
+                <div className="flex flex-wrap mx-6 justify-center sm:mx-0">
                   {posts.length !== 0 &&
                     posts.map((list) => {
 
@@ -93,6 +97,13 @@ export default function Test() {
                         </Link>
                       );
                     })}
+
+                    {
+                      fetchListing.isLoading || fetchListing.isFetching &&
+                      <>
+                      <BlogsSkeleton/>
+                      </>
+                    }
                 </div>
               </div>
             </section>
