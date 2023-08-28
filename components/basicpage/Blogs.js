@@ -31,7 +31,7 @@ export default function Blogs(props) {
               return null;
             })
           }
-          {  fetchListing.isLoading || fetchListing.isFetching &&
+          {  fetchListing.isLoading && posts.length<6 &&
             <BlogsSkeleton/>
           }
         </div>
