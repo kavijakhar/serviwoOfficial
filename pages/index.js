@@ -3,6 +3,7 @@ import Blogs from '../components/basicpage/Blogs'
 import Header from '../components/Header'
 import Projects from '../components/basicpage/Projects'
 import Services from '../components/basicpage/Services'
+import FAQ from './FAQ'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <About />
 <Services/>
       <Blogs />
+      <FAQ/>
     </>
   )
 }
