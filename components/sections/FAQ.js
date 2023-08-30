@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function FAQ() {
+function Faq() {
   const footerStyle = {
     background: 'linear-gradient(purple, var(--color))',
   };
@@ -157,4 +157,4 @@ return (
 );
 }
 
-export default FAQ;
+export default Faq;
