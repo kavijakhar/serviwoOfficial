@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Projects from '../components/basicpage/Projects'
 import Services from '../components/basicpage/Services'
 import FAQ from './FAQ'
+import Test from './Pricing'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
 <Services/>
       <Blogs />
+      <Test/>
       <FAQ/>
     </>
   )
