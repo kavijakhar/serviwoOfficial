@@ -34,7 +34,8 @@ export default function App({ Component, pageProps }) {
   {/* Open Graph Tags */}
   <meta property="og:title" content="Serviwo - Professional Web Development Services" />
   <meta property="og:description" content="Transforming businesses through professional web development. Contact Serviwo for custom web solutions that drive online success." />
-  <meta property="og:image" content="/serviwoFavicon.png" />
+  {/* <meta property="og:image" content="/serviwoFavicon.png" /> */}
+  <meta property="og:image" content="/faceimageServiwo.png" />
   <meta property="og:url" content="https://serviwo.com" />
   
   {/* Canonical Link */}
