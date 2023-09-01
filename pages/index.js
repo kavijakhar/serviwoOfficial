@@ -3,6 +3,7 @@ import Blogs from '../components/basicpage/Blogs'
 import Header from '../components/Header'
 import Services from '../components/basicpage/Services'
 import Faq from '../components/sections/FAQ'
+import Pricing from '../components/sections/Pricing'
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
 <Services/>
       <Blogs />
+      <Pricing/>
       <Faq/>
     </>
   )

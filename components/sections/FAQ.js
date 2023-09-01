@@ -7,7 +7,7 @@ function Faq() {
 
   const headingstyle = {
     margin: '2rem',
-    paddingTop: '1rem',
+    paddingTop: '2px',
     display: 'inline-block',
     fontSize: '2.5rem',
     color: 'var(--color)',
