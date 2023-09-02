@@ -1,8 +1,34 @@
 import Link from "next/link";
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { FiCheck, FiX } from 'react-icons/fi';
 
 function Pricing() {
+    const [animate, setAnimate] = useState(false);    
+  useEffect(() => {
+    const checkScroll = () => {
+      const containerPosition = document
+        .querySelector('#pricing')
+        .getBoundingClientRect().top;
+
+      if (containerPosition <= window.innerHeight * 0.75) {
+        setAnimate(true);
+      } else {
+        setAnimate(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+
+    // Check on component mount
+    checkScroll();
+
+    // Cleanup event listeners on unmount
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
     const footerStyle = {
         background: 'linear-gradient(purple, var(--color))',
     };
@@ -55,7 +81,7 @@ function Pricing() {
     return (
         <>
 
-            <div class="min-h-screen md:mx-20  mx-7 flex flex-wrap items-center text-xl justify-center my-10">
+            <div class={`min-h-screen md:mx-20  mx-7 flex flex-wrap items-center text-xl justify-center  mt-28 ${animate ? 'opacity-100 -translate-y-[60px]' : 'opacity-0'}`} id="pricing">
 
                 <div class="flex flex-col sm:flex-col lg:flex-row xl:flex-row md:flex-row justify-center items-center container mx-auto">
                     <div class="py-12 mt-5 md:mt-0 shadow-md sm:py-12 h-[full] md:py-6 lg:py-6 xl:py-6 px-8 w-full md:max-w-[350px]  sm:w-full bg-white z-30 hover:scale-105">

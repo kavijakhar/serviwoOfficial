@@ -1,12 +1,36 @@
-import React from "react";
+import React ,{useState,useEffect} from "react";
 import { RiSeoFill } from "react-icons/ri";
-import { BsChatSquareDots, BsWallet2, BsFunnelFill } from "react-icons/bs";
-import { RiAdvertisementLine } from "react-icons/ri";
+import { BsChatSquareDots, BsWallet2 } from "react-icons/bs";
 import { SiTaichigraphics, SiXdadevelopers } from "react-icons/si";
 import { PiIdentificationCardThin } from "react-icons/pi";
 import styles from '../styles/services.module.css'
-import { useState } from "react";
 const Services = () => {
+  const [animate, setAnimate] = useState(false);    
+  useEffect(() => {
+    const checkScroll = () => {
+      const containerPosition = document
+        .querySelector('#Services')
+        .getBoundingClientRect().top;
+
+      if (containerPosition <= window.innerHeight * 0.75) {
+        setAnimate(true);
+      } else {
+        setAnimate(false);
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+
+    // Check on component mount
+    checkScroll();
+
+    // Cleanup event listeners on unmount
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
   const serviceBlocksData = [
     {
       icon: RiSeoFill,
@@ -42,7 +66,7 @@ const Services = () => {
   return (
     <div
       id="Services"
-      className="section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white max-md:mx-0"
+      className={`section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white max-md:mx-0  ${animate ? 'opacity-100 -translate-y-[60px]' : 'opacity-0'}`}
     >
       <div className=" md:!mx-24 max-sm:m-28 max-md:mx-44  m px-4">
         {/* Heading start */}
@@ -98,7 +122,7 @@ const Services = () => {
         </header>
         {/* End heading */}
         {/* row */}
-        <div className="flex flex-wrap flex-row -mx-4 text-center">
+        <div className={  `flex flex-wrap flex-row -mx-4 text-center`}>
       {serviceBlocksData.map((block, index) => (
         <ServiceBlock
           key={index}
@@ -120,7 +144,7 @@ const ServiceBlock = ({ icon, title, description }) => {
 
   return (
     <div
-      className="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp "
+      className={`flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/3 lg:px-6 wow fadeInUp `}
       data-wow-duration="1s"
       style={{
         visibility: "visible",
