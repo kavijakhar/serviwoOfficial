@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /api/       # Disallow crawling of the admin section
+Disallow: /login/     # Disallow crawling of private content
+Allow: /aboutUs/         # Allow crawling of public content
+Allow: /allblogs/         # Allow crawling of public content
+Allow: /         # Allow crawling of public content
+Allow: /joinUs/         # Allow crawling of public content
+Allow: /logos/         # Allow crawling of public content
+Allow: /services/         # Allow crawling of public content
