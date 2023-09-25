@@ -83,12 +83,12 @@ export default function Navbar() {
             <nav>
               <ul>
                 <li>
-                  <Link href="/">Home</Link>
-                  <Link href="/aboutUs">About</Link>
-                  <Link href="/services">Services</Link>
-                  <Link href="/allblogs">Blogs</Link>
-                  <Link href="/logos">Logo</Link>
-                  <Link href="/joinUs">Join Us</Link>
+                  <Link href="/" className='hover:text-gray-300'>Home</Link>
+                  <Link href="/aboutUs" className='hover:text-gray-300'>About</Link>
+                  <Link href="/services" className='hover:text-gray-300'>Services</Link>
+                  <Link href="/allblogs" className='hover:text-gray-300'>Blogs</Link>
+                  <Link href="/logos" className='hover:text-gray-300'>Logo</Link>
+                  <Link href="/joinUs" className='hover:text-gray-300'>Join Us</Link>
                 </li>
               </ul>
             </nav>

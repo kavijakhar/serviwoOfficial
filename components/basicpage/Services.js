@@ -66,7 +66,7 @@ const Services = () => {
   return (
     <div
       id="Services"
-      className={`section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white max-md:mx-0  ${animate ? 'opacity-100 -translate-y-[60px]' : 'opacity-0'}`}
+      className={`section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white max-md:mx-0  `}
     >
       <div className=" md:!mx-24 max-sm:m-28 max-md:mx-44  m px-4">
         {/* Heading start */}
@@ -121,7 +121,8 @@ const Services = () => {
           </p>
         </header>
         {/* End heading */}
-        {/* row */}
+        {/* row */} 
+        {/* ${animate ? 'opacity-100 -translate-y-[60px]' : 'opacity-0'} */}
         <div className={  `flex flex-wrap flex-row -mx-4 text-center`}>
       {serviceBlocksData.map((block, index) => (
         <ServiceBlock
