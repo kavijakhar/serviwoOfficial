@@ -19,7 +19,7 @@ export default function Slug({ blog, error }) {
   return (
     <>
       {blog && (
-        <div className="mt-20 my-component">
+        <div className="mt-10 my-component">
           <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto flex flex-col">
               <div className="lg:w-4/6 mx-auto">
@@ -49,7 +49,7 @@ export default function Slug({ blog, error }) {
                       <p className="text-base">
                         Developing the habit of reading blogs is crucial for
                         personal growth. It exposes you to diverse perspectives,
-                        insights, and information on various topics.{" "}
+                        insights, and information on various topics.
                       </p>
                     </div>
                   </div>
