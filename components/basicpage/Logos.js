@@ -49,7 +49,7 @@ const logosData = [
     return (
       <div className="w-50 flex justify-around items-center mx-10 my-40 flex-wrap">
         {logosData.map((logo) => (
-          <div key={logo.id} className="m-4 relative max-w-xl rounded-lg overflow-hidden bg-cover bg-no-repeat">
+          <div key={logo.src} className="m-4 relative max-w-xl rounded-lg overflow-hidden bg-cover bg-no-repeat">
             <Image
              height={500}
              width={500}

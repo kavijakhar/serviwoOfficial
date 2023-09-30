@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
+import validator from 'validator';
 export default function JoinUs() {
   const router=useRouter()
   const [credentials, setCredentials] = useState({
@@ -14,12 +15,14 @@ export default function JoinUs() {
   const changeCredentials = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
-  useEffect(() => {
-    console.log("credentials", credentials);
-  }, [credentials]);
+
   const OnSubmit = async (event) => {
     event.preventDefault();
-    let oid = Math.floor(Math.random() * Date.now());
+  
+    if(!validator.isEmail(credentials.email)){
+      toast.error("Provide Valid Email 🤨")
+      return null
+    }
     let data = {
       email: credentials.email,
       name: credentials.name,
