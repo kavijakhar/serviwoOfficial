@@ -6,7 +6,6 @@ const logosData = [
     { id: 2, src: "/logos/logo3.jpg" },
     { id: 3, src: "/logos/logo4.png" },
     { id: 4, src: "/logos/logo5.jpeg" },
-    { id: 5, src: "/logos/logo7.jpeg" },
     { id: 6, src: "/logos/logo8.jpeg" },
     { id: 7, src: "/logos/logo9.jpeg" },
     { id: 8, src: "/logos/logo10.jpeg" },
@@ -26,6 +25,7 @@ const logosData = [
     { id: 17, src: "/logos/temple_logo.jpg" },
     { id: 17, src: "/logos/cleaning_logo.jpg" },
     { id: 17, src: "/logos/cafe_logo_01.jpg" },
+    { id: 5, src: "/logos/logo7.jpeg" },
     { id: 17, src: "/logos/cafe_logo.jpg" },
     { id: 17, src: "/logos/medical_logo.jpg" },
     { id: 17, src: "/logos/primium_logo.jpg" },
@@ -43,6 +43,17 @@ const logosData = [
     { id: 17, src: "/logos/digital_logo_01.jpg" },
     { id: 17, src: "/logos/clinic_logo.jpg" },
     { id: 17, src: "/logos/investment_group.jpg" },
+    { id: 17, src: "/logos/mahiya logo design primium.jpg" },
+
+
+    { id: 17, src: "/logos/caffee logo.jpeg" },
+    { id: 17, src: "/logos/mriya logo brand.jpeg" },
+
+
+
+    { id: 17, src: "/logos/luxerry photoshop logo.png" },
+    { id: 17, src: "/logos/3D logo Digital photo studio office room black wall.jpg" },
+    { id: 17, src: "/logos/3D logo Digital on office room black wall.png" },
   ];
   
   export default function Logos() {

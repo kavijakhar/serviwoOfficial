@@ -18,6 +18,7 @@ const CarouselComponent = () => {
 
   const logosData = [
     { id: 6, src: "/logos/logo8.jpeg" },
+    { id: 13, src: "/logos/mriya logo brand.jpeg" },
     { id: 1, src: "/logos/logo.jpg" },
     { id: 2, src: "/logos/logo3.jpg" },
     { id: 3, src: "/logos/logo4.png" },
@@ -26,9 +27,10 @@ const CarouselComponent = () => {
     { id: 7, src: "/logos/logo9.jpeg" },
     { id: 8, src: "/logos/logo10.jpeg" },
     { id: 9, src: "/logos/logo11.jpeg" },
-    { id: 10, src: "/logos/logo20.jpg" },
     { id: 11, src: "/logos/logo21.jpg" },
     { id: 12, src: "/logos/logo24.jpg" },
+    { id: 17, src: "/logos/primium_logo_01.jpg" },
+    { id: 14, src: "/logos/mahiya logo design primium.jpg" },
   ];
   const swiperStyle = {
     background: 'linear-gradient(purple, var(--color))',
