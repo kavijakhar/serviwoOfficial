@@ -22,9 +22,9 @@ export default function Blogs(props) {
       <section className={styles.blogs} id="blogs">
         <h1 className={`${styles.heading} heading`}>our blogs</h1>
         <div className={styles.boxContainer}>
-          {
+          {posts&&
             posts.length !== 0 &&
-            posts.map((blogitem, index) => {
+            posts?.map((blogitem, index) => {
               if (index < 6) {
                 return <Blogitem key={blogitem._id} blogdata={blogitem} />;
               }

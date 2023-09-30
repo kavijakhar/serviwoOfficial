@@ -21,47 +21,47 @@ function Faq() {
   const faqs = [
     {
         question: 'What kind of companies and businesses are you working with?',
-        answer: 'I have worked for a wide variety of businesses ranging from small start-ups to medium sized established businesses. The industries and business areas I have worked with include coaching, investing, real estate, local businesses, brick and mortar, personal sites and service based entrepreneurs. ',
+        answer: 'We have worked for a wide variety of businesses ranging from small start-ups to medium sized established businesses. The industries and business areas  We have worked with include coaching, investing, real estate, local businesses, brick and mortar, personal sites and service based entrepreneurs. ',
     },
     {
-        question: 'When the site is over, will I be able to update it myself?',
-        answer: 'Yes, indeed. I like to give my clients the option of updating their websites. I’ll provide you with all of the necessary training and resources to make changes to your website easily without relying on a developer.',
+        question: 'When the site is over, will  We be able to update it myself?',
+        answer: 'Yes, indeed. We like to give Our clients the option of updating their websites. We’ll provide you with all of the necessary training and resources to make changes to your website easily without relying on a developer.',
     },
     {
         question: 'How much time will you take to build a website?',
-        answer: 'Actually, the time I need to build a website will vary depending upon the industries and businesses I work with. It also depends on the quality of design, number of pages, different components, and features the customer requires. For small projects usually take 3 weeks and for medium and large projects it can take upto 6-8 weeks to ensure you get the best in class.',
+        answer: 'Actually, the time We need to build a website will vary depending upon the industries and businesses We work with. It also depends on the quality of design, number of pages, different components, and features the customer requires. For small projects usually take 3 weeks and for medium and large projects it can take upto 6-8 weeks to ensure you get the best in class.',
     },
     {
         question: 'How much does it cost to build a website?',
-        answer: 'The total cost to build a website depends upon the features and complexity of the project but for a ballpark figure, it can range from $499- $10,000+.  Small sites usually range between $499-2000, medium $3k-5k and for large enterprises can be upwards of $10k.The more the budget is, the more freedom I have, to research and build the best site in your industry.  Since I am a web design freelancer, my rates are usually more affordable than web agencies. Besides, I could also give you personalized attention to your project which you can rarely find with agencies who work on heaps of projects simultaneously.'
+        answer: 'The total cost to build a website depends upon the features and complexity of the project but for a ballpark figure, it can range from $499- $10,000+.  Small sites usually range between $499-2000, medium $3k-5k and for large enterprises can be upwards of $10k.The more the budget is, the more freedom  We have, to research and build the best site in your industry.  Since  We  are a web design freelancer,  Our rates are usually more affordable than web agencies. Besides,  We could also give you personalized attention to your project which you can rarely find with agencies who work on heaps of projects simultaneously.'
     },
     {
         question: 'How does the payment process work?',
-        answer: 'Yes! I have made the payment process simpler and affordable. For every website project, the payment is split into 3 parts: 30% deposit to book your slot in my production calendar, 35% in the middle of the project, and 35% at the end of the project.'
+        answer: 'Yes!  We have made the payment process simpler and affordable. For every website project, the payment is split into 3 parts: 30% deposit to book your slot in  Our production calendar, 35% in the middle of the project, and 35% at the end of the project.'
     },
     {
-        question: 'What costs should I expect other than website design services?',
-        answer: 'Hosting: It’s the place where you build website files that are stored on a server connected to the internet 24/7. I recommend Bluehost for hosting if I build on WordPress. Bluehost is the best hosting provider out there for small businesses and personal brands.Shopify, Squarespace and Webflow have their own plans which you can check out on their official sites. Domain: If you purchase your hosting from Bluehost, it’s free for your first year with any hosting plan. Moreover, if I am going to use other CMS besides WP you can buy a domain from godaddy and I will connect to the platform. That’s it!'
+        question: 'What costs should  We expect other than website design services?',
+        answer: 'Hosting: It’s the place where you build website files that are stored on a server connected to the internet 24/7.  We recommend Bluehost for hosting if  We build on WordPress. Bluehost is the best hosting provider out there for small businesses and personal brands.Shopify, Squarespace and Webflow have their own plans which you can check out on their official sites. Domain: If you purchase your hosting from Bluehost, it’s free for your first year with any hosting plan. Moreover, if  We  are going to use other CMS besides WP you can buy a domain from godaddy and  We will connect to the platform. That’s it!'
     },
     {
-        question: 'On what platforms will you create my website?',
-        answer: 'It totally depends upon the requirements and size of the project. I am proficient in WordPress, Webflow, Shopify, Woocommerce and Squarespace. All these platforms are affordable, faster and breeze to build and maintain. You’ll be able to update most of the stuff on your site yourself. ',
+        question: 'On what platforms will you create  Our website?',
+        answer: 'It totally depends upon the requirements and size of the project.  We  are proficient in WordPress, Webflow, Shopify, Woocommerce and Squarespace. All these platforms are affordable, faster and breeze to build and maintain. You’ll be able to update most of the stuff on your site yourself. ',
     },    {
-        question: 'Will you help me write content for my website?',
-        answer: 'Of course I will help you. As a web design freelancer, copywriting and editing are included in my services. If writing is not something you enjoy I can totally write conversion and SEO optimized copy for your new website. Since you are the expert in your industry, I will have to ask you a lot of questions to write an amazing copy focused on presenting your brand message effectively and position you as an industry expert.',
+        question: 'Will you help me write content for  Our website?',
+        answer: 'Of course  We will help you. As a web design freelancer, copywriting and editing are included in  Our services. If writing is not something you enjoy  We can totally write conversion and SEO optimized copy for your new website. Since you are the expert in your industry,  We will have to ask you a lot of questions to write an amazing copy focused on presenting your brand message effectively and position you as an industry expert.',
     },    {
-        question: 'Who owns the content on my new website?',
-        answer: 'When I transfer ownership of your new website over to you, I also give you the rights to the intellectual property. You own everything.',
+        question: 'Who owns the content on  Our new website?',
+        answer: 'When  We transfer ownership of your new website over to you,  We also give you the rights to the intellectual property. You own everything.',
     },    {
         question: 'Do you offer ongoing support after the project is over?',
-        answer: 'Absolutely. At the end of the web design project, we can discuss how I can continue to support your business so you can stay in your zone of genius – growing your business. I take away all the hassle of maintaining and updating your growing business site.',
+        answer: 'Absolutely. At the end of the web design project, we can discuss how  We can continue to support your business so you can stay in your zone of genius – growing your business.  We take away all the hassle of maintaining and updating your growing business site.',
     },    {
-        question: 'What if I don’t have the money to invest in a new website right now?',
-        answer: 'I know investment decisions can be difficult. I run a small business, too! But what if you could get new customers and sales faster and actually make back your investment within a few months?Each month that goes by without new sales is actually another month you bear the loss. Doing the same things that aren’t getting you results is more expensive than taking action and fixing your website.I definitely wouldn’t hesitate to invest considering it can help my business get more sales and you shouldn’t too.',
+        question: 'What if  We don’t have the money to invest in a new website right now?',
+        answer: 'I know investment decisions can be difficult.  We run a small business, too! But what if you could get new customers and sales faster and actually make back your investment within a few months?Each month that goes by without new sales is actually another month you bear the loss. Doing the same things that aren’t getting you results is more expensive than taking action and fixing your website.I definitely wouldn’t hesitate to invest considering it can help  Our business get more sales and you shouldn’t too.',
     },
     {
         question: 'How soon can we get started?',
-        answer: 'It totally depends on your launch deadline and my availability to take on a new project that month. We can discuss that on a call if you are ready to move forward with me. Book a “FREE CALL” with me and find out your perfect spot!',
+        answer: 'It totally depends on your launch deadline and  Our availability to take on a new project that month. We can discuss that on a call if you are ready to move forward with me. Book a “FREE CALL” with me and find out your perfect spot!',
     },
 
 ];
