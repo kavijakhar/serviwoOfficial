@@ -1,48 +1,57 @@
-// getting-started.js
 const mongoose = require("mongoose");
+
 const blogSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    require: true,
-  },
   authorEmail: {
     type: String,
     required: true,
   },
   authorName: {
     type: String,
-    require: true,
-    default:'Unkown'
+    required: true,
+    default: 'Unknown'
+  },
+  timeReading: {
+    type: Number, // Fix the type to `Number`
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
   },
   description: {
     type: String,
-    require: true,
-  },
-  excerpt: {
-    type: String,
-    require: true,
-    default:''
-  },
-  content: {
-    type: String,
     required: true,
-    default: "" // Empty buffer as the default value
-  },
-  slug: {
-    type: String,
-    required: true,
-    unique:true // Empty buffer as the default value
   },
   image: {
     type: String,
     required: true,
-    default:"" // Empty buffer as the default value
+    default: ""
+  },
+  excerpt: {
+    type: String,
+    required: true,
+    default: ''
+  },
+  content: {
+    type: String,
+    required: true,
+    default: ""
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true
   },
   category: {
     type: String,
-    require: true,
-    default:'default'
+    required: true,
+    default: 'default'
   },
-},{timestamps:true});
-mongoose.models={}
-export default mongoose.models.Blog || mongoose.model("Blog",blogSchema)
+  tags: {
+    type: [String],
+    default: []
+  },
+}, { timestamps: true });
+
+mongoose.models = {}
+export default mongoose.models.Blog || mongoose.model("Blog", blogSchema);

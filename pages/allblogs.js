@@ -12,45 +12,45 @@ export default function Test() {
   const { posts, fetchMoreData, fetchListing } = useContext(mainContext);
 
   useEffect(() => {
-  
-    console.log('first',fetchListing.isFetching);
-    
+
+    console.log('first', fetchListing.isFetching);
 
 
-}, [fetchListing.isFetching]);
+
+  }, [fetchListing.isFetching]);
 
   return (
     <>
-      <section className=" dark:text-gray-900 pt-36">
-        <div className="flex flex-wrap justify-center -mx-4">
-          <div className="w-full px-4">
-            <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
+      <div className=" dark:text-gray-900 pt-36 flex items-center justify-center">
+        <div className="">
+          <div className="flex flex-wrap justify-center -mx-4">
+            <div className="w-full px-4">
+              <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
 
-              <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{' line-height': '1'}}>
-                Are you a passionate reader? Read Our Latest Blogs
-              </h2>
+                <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{ ' line-height': '1' }}>
+                  Are you a passionate reader? Read Our Latest Blogs
+                </h2>
 
+              </div>
             </div>
           </div>
-        </div>
-        <div className="container max-w-[120rem] py-6 mx-auto space-y-6 sm:space-y-12">
-       {   <InfiniteScroll
+          {<InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
             scrollableTarget="scrollableDiv"
             loader={
               <div className="flex justify-center">
-             
+
               </div>
             }
             endMessage={
               <p className="text-center py-2">
-                <b>Yay! You have seen it all</b>
+                {posts.length !== 0 && <b>Yay! You have seen it all</b>}
               </p>
             }
           >
-            <section className="pt-3 lg:pt-[12px] pb-10 sm:ml-40  lg:pb-20">
+            <section className="pt-3 lg:pt-[12px] pb-10  lg:pb-20">
               <div className="container m-auto">
 
                 <div className="flex flex-wrap mx-6 justify-center sm:mx-0">
@@ -98,12 +98,12 @@ export default function Test() {
                       );
                     })}
 
-                    {
-                      fetchListing.isLoading || fetchListing.isFetching &&
-                      <>
-                      <BlogsSkeleton/>
-                      </>
-                    }
+                  {
+                    fetchListing.isLoading || fetchListing.isFetching &&
+                    <>
+                      <BlogsSkeleton />
+                    </>
+                  }
                 </div>
               </div>
             </section>
@@ -112,7 +112,7 @@ export default function Test() {
           </InfiniteScroll>}
         </div>
 
-      </section>
+      </div>
     </>
   );
 }
