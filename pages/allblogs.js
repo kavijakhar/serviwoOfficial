@@ -78,12 +78,20 @@ export default function Test() {
                 </div>}
                 {!appliedFilter && <div
                   className="bg-blue-400 py-3 px-3 text-white text-xl sm:hidden block font-medium rounded-full hover:shadow-lg transition duration-300 cursor-pointer"
-                  disabled={searchValue == "" && selectValue == ""} onClick={onSearchClick}
+                  onClick={() => {
+                    if (searchValue !== "" && selectValue !== "") {
+                      onSearchClick();
+                    }
+                  }}
                 >
                   <FaSearch className="h-6 w-6 text-white" />
                 </div>}
               </div>
-              <button className="bg-blue-400 py-3 px-5 sm:block hidden text-white text-xl font-medium rounded-lg hover:shadow-lg transition duration-300 cursor-pointer" disabled={searchValue == "" && selectValue == ""} onClick={onSearchClick}>
+              <button className="bg-blue-400 py-3 px-5 sm:block hidden text-white text-xl font-medium rounded-lg hover:shadow-lg transition duration-300 cursor-pointer" disabled={searchValue == "" && selectValue == ""} onClick={() => {
+                    if (searchValue !== "" && selectValue !== "" && !appliedFilter) {
+                      onSearchClick();
+                    }
+                  }}>
                 Search
               </button>
             </div>
