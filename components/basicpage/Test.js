@@ -28,7 +28,6 @@ const PhoneForm = () => {
     if (isValidPhoneNumber) {
       // Format the phone number with the country code and log it in the console
       const formattedPhoneNumber = selectedCountry.value + phoneNumber;
-      console.log('Formatted Phone Number:', formattedPhoneNumber);
       setValidationMessage('Phone number is valid.');
     } else {
       setValidationMessage('Invalid phone number. Please check your input.');

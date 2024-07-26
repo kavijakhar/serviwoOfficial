@@ -1,16 +1,23 @@
 import React, { useEffect, useRef, useState } from "react";
 import { format, parseISO } from "date-fns";
 import NotFound from "../../components/sections/NotFound";
-import { FaCross, FaFacebook, FaInstagram, FaRegShareFromSquare } from 'react-icons/fa6';
+import { FaFacebook, FaInstagram, FaRegShareFromSquare } from 'react-icons/fa6';
 import { FaWhatsapp, FaExpand } from 'react-icons/fa';
 import { RxCross1 } from 'react-icons/rx';
 
 export default function Slug({ blog, error }) {
   const [date, setdate] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const blogUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const [blogUrl, setBlogUrl] = useState("");
   const dropdownRef = useRef(null);
   const [expanded, setExpanded] = useState(false);
+
+  // Generate the blog URL only on the client side
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setBlogUrl(window.location.href);
+    }
+  }, []);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -57,19 +64,19 @@ export default function Slug({ blog, error }) {
       {blog && (
 
         <article className="flex">
-          <div class="container mx-auto px-32 py-44">
+          <div className="container mx-auto sm:px-32 px-7 py-44">
             <div className="flex justify-between">
-              <div class="flex items-center mb-4 ">
-                <div class="flex items-center mr-4">
-                  <div class="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-400">
-                    <span class="font-medium text-white dark:text-gray-200 text-2xl">{getAuthorInitials(blog.authorName)}</span>
+              <div className="flex items-center mb-4 ">
+                <div className="flex items-center mr-4">
+                  <div className="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden bg-gray-100 rounded-full dark:bg-blue-600">
+                    <span className="font-medium text-white dark:text-white text-2xl">{getAuthorInitials(blog.authorName)}</span>
                   </div>
-                  <span class="ml-2 text-gray-600 text-xl font-bold">{blog.authorName}</span>
+                  <span className="ml-2 text-gray-600 text-xl font-bold">{blog.authorName}</span>
                 </div>
-                <div class="border-2 border-gray-500 h-8 mx-4"></div>
-                <div class="text-gray-700 text-xl">{date}</div>
-                <div class="border-2 border-gray-500 h-8 mx-4"></div>
-                <div class="text-gray-700 text-xl">1 min read</div>
+                <div className="border-2 border-gray-500 h-8 mx-4"></div>
+                <div className="text-gray-700 text-xl">{date}</div>
+                <div className="border-2 border-gray-500 h-8 mx-4"></div>
+                <div className="text-gray-700 text-xl">1 min read</div>
               </div>
               <div className="mt-5 mr-20 relative" ref={dropdownRef}>
                 <button onClick={toggleDropdown} className="flex items-center">
@@ -78,13 +85,15 @@ export default function Slug({ blog, error }) {
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10">
                     <div className="py-1">
-                      <a href={`https://api.whatsapp.com/send?text=${blogUrl}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
+                      <a href={`https://api.whatsapp.com/send?text=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
                         <span><FaWhatsapp size={15} className="mx-2" /></span> WhatsApp
                       </a>
-                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${blogUrl}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
+                      <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
+
                         <span><FaFacebook size={15} className="mx-2" /></span> Facebook
                       </a>
-                      <a href={`https://www.instagram.com/?url=${blogUrl}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
+                      <a href={`https://www.instagram.com/?url=${encodeURIComponent(blogUrl)}`} target="_blank" rel="noopener noreferrer" className="flex px-4 py-2 text-gray-800 hover:bg-gray-200">
+
                         <span><FaInstagram size={15} className="mx-2" /></span> Instagram
                       </a>
                     </div>
@@ -92,7 +101,7 @@ export default function Slug({ blog, error }) {
                 )}
               </div>
             </div>
-            <h1 class="text-4xl font-bold mb-4 text-gray-800">{blog.title}</h1>
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">{blog.title}</h1>
             <p className="my-2 text-xl">
               {blog.description}
             </p>
@@ -117,13 +126,10 @@ export default function Slug({ blog, error }) {
                 />
               )}
             </div>
-            <div class="text-gray-800 leading-relaxed">
-              <p class="mb-4 text-xl py-4" dangerouslySetInnerHTML={createMarkup(
+            <div className="text-gray-800 leading-relaxed">
+              <div className="mb-4 text-xl py-4 my-component" dangerouslySetInnerHTML={createMarkup(
                 blog.content ? blog.content : ""
-              )}></p>
-
-              <blockquote class="italic border-l-4 text-xl border-red-600 pl-4 py-6">“Do you have a design in mind for your blog? Whether you prefer a trendy postcard look or you’re going for a more editorial style blog - there’s a stunning layout for everyone.”</blockquote>
-
+              )}></div>
             </div>
           </div>
         </article>

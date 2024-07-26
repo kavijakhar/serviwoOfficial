@@ -38,7 +38,6 @@ export default function Navbar() {
         for (i = 0; i < dropdowns.length; i++) {
           var openDropdown = dropdowns[i];
           if (openDropdown.classList.contains(`${styles.toggle}`)) {
-            console.log('first window')
             openDropdown.classList.remove(`${styles.toggle}`);
             setdropdownToggle(false)
           }

@@ -1,39 +1,91 @@
 import InfiniteScroll from "react-infinite-scroll-component";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import mainContext from "../context/MainContext";
 import Link from "next/link";
 import { format, parseISO } from 'date-fns'
 import BlogsSkeleton from "../components/skeletons/BlogsSkeleton";
-import { useEffect } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { RxCross1 } from "react-icons/rx";
 
-
+import { FaSearch } from "react-icons/fa";
 
 export default function Test() {
-  const { posts, fetchMoreData, fetchListing } = useContext(mainContext);
+  const { posts, fetchMoreData, fetchListing, handleSearch, clearFilter, appliedFilter } = useContext(mainContext);
+  const [selectValue, setSelectValue] = useState('')
+  const [searchValue, setSearchValue] = useState('')
 
-  useEffect(() => {
+  const handleSelectChange = (e) => {
+    setSelectValue(e.target.value);
+  };
 
-    console.log('first', fetchListing.isFetching);
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+  const onSearchClick = () => {
+    handleSearch(selectValue, searchValue);
+  };
 
-
-
-  }, [fetchListing.isFetching]);
-
+  const onClearFilterClick = () => {
+    setSelectValue('');
+    setSearchValue('');
+    clearFilter();
+  };
   return (
     <>
       <div className=" dark:text-gray-900 pt-36 flex items-center justify-center">
         <div className="">
           <div className="flex flex-wrap justify-center -mx-4">
             <div className="w-full px-4">
-              <div className="text-center mx-auto mb-[10px] lg:mb-20 max-w-[510px]">
-
-                <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{ ' line-height': '1' }}>
+              <div className="text-center mx-auto mb-[7px] lg:mb-20 max-w-[510px]">
+                <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{ 'lineHeight': '1' }}>
                   Are you a passionate reader? Read Our Latest Blogs
                 </h2>
 
               </div>
             </div>
           </div>
+          <div className="mb-4">
+            <div className="flex sm:px-2 mx-44 sm:mx-auto items-center p-6 w-fit space-x-14 bg-white rounded-xl shadow-lg hover:shadow-xl transform sm:hover:scale-x-105 transition duration-500">
+              <div className="flex py-3 px-5 text-xl rounded-lg text-gray-500 font-medium cursor-pointer">
+                <select
+                  id="underline_select"
+                  className="block py-2.5 w-full pr-5 pl-1 text-xl text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-400 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+                  value={selectValue}
+                  onChange={handleSelectChange}
+                >
+                  <option value="" disabled>Select</option>
+                  <option value="title">Title</option>
+                  <option value="authorName">Author Name</option>
+                  <option value="categories">Category</option>
+                  <option value="date">Date</option>
+                </select>
+                <IoIosArrowDown className="h-7 w-7 mt-2 opacity-30" />
+              </div>
+              <div className="flex bg-gray-100 p-4 space-x-5 rounded-lg">
+                <FaSearch className="h-6 w-6 opacity-30" />
+                <input
+                  className="bg-gray-100 outline-none pr-32 text-xl"
+                  type={selectValue == 'date' ? 'date' : 'text'}
+                  placeholder="Enter Search Value here . . ."
+                  value={searchValue}
+                  onChange={handleSearchChange}
+                />
+                {appliedFilter && <div
+                  className="bg-gray-400 py-3 px-3 text-white text-xl font-medium rounded-full hover:shadow-lg transition duration-3000 cursor-pointer"
+                  onClick={onClearFilterClick}
+                >
+                  <span><RxCross1 /></span>
+                </div>}
+              </div>
+              <button className="bg-blue-400 py-3 px-5 text-white text-xl font-medium rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer" disabled={searchValue == ""} onClick={onSearchClick}>
+                <span>Search</span>
+              </button>
+            </div>
+          </div>
+          {posts.length === 0 && <img
+            src='/empty.gif'
+            className='h-auto'
+          />}
           {<InfiniteScroll
             dataLength={posts?.length || 0} //This is important field to render the next data
             next={fetchMoreData}

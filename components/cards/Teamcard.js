@@ -2,9 +2,6 @@ import React from 'react'
 import styles from '../../styles/basicpage/Team.module.css'
 import Link from 'next/link'
 export default function Teamcard() {
-    const onclick = (Element)=>{
-        console.log(Element)
-    }
   return (
     <>
     <div className={styles.card}>

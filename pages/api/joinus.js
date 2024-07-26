@@ -21,11 +21,7 @@ try {
     designation: data.designation,
     pincode: data.pincode,
   });
-  console.log(order);
-  
   await order.save()
-
-  
   res.status(200).json({success:true,error:""} );
   
 } catch (error) {

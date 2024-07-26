@@ -1,61 +1,86 @@
 import React, { useEffect, useState } from "react";
 import MainContext from "./MainContext.js";
-import { useQuery } from "react-query";
-const MainStates = (props) => {
+import { useQuery, useQueryClient } from "react-query";
 
-  // listing status //
-  // save post
+const MainStates = (props) => {
   const [posts, setPosts] = useState([]);
   const [lastNewsId, setLastNewsId] = useState("");
+  const [searchParams, setSearchParams] = useState({ selectValue: "", searchValue: "" });
+  const queryClient = useQueryClient();
+  const [appliedFilter, setAppliedFilter] = useState(false)
 
-  // get posts functions
   const getAllPosts = async () => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_AUTH_KEY}/blogs/blog?last_news_id=${lastNewsId ? lastNewsId : ""}`
-    );
+    const { selectValue, searchValue } = searchParams;
+    let query = new URLSearchParams();
 
+    if (!searchValue && !selectValue && lastNewsId) {
+      query.append("last_news_id", lastNewsId);
+    }
+    if (selectValue && searchValue) {
+      query.append(selectValue, searchValue);
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_AUTH_KEY}/blogs/blog?${query.toString()}`);
     const data = await res.json();
     return data;
   };
-  const fetchListing = useQuery("listData", getAllPosts, {
+
+  const fetchListing = useQuery(["listData", searchParams, lastNewsId], getAllPosts, {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    // enabled:false
   });
 
   const { isLoading, error, data, refetch, isFetching } = fetchListing;
 
-  const fetchMoreData = async () => {
-    setLastNewsId(data[data.length - 1]._id);
+  const fetchMoreData = () => {
+    if (data.length > 0) {
+      setLastNewsId(data[data.length - 1]._id);
+    }
   };
+
   useEffect(() => {
     if (data) {
-      if (posts?.length === 0 || lastNewsId === null) {
+      if (posts.length === 0 || lastNewsId === "") {
         if (!isLoading && !error) {
           setPosts(data);
-
         }
       } else {
-        setPosts(posts.concat(data));
+        setPosts((prevPosts) => prevPosts.concat(data));
       }
     }
   }, [data]);
 
   useEffect(() => {
-    setTimeout(() => {
-      refetch();
-
-    }, 1000);
+    if (lastNewsId && !searchParams.searchValue && !searchParams.selectValue) {
+      setTimeout(() => {
+        refetch();
+      }, 1000);
+    }
   }, [lastNewsId]);
 
-
+  const handleSearch = (selectValue, searchValue) => {
+    setSearchParams({ selectValue, searchValue });
+    setLastNewsId(""); // Reset the lastNewsId for new search
+    setPosts([]); // Clear current posts
+    setAppliedFilter(true)
+    queryClient.invalidateQueries("listData");
+  };
+  const clearFilter = () => {
+    setSearchParams({ selectValue: "", searchValue: "" });
+    setLastNewsId("");
+    setPosts([]);
+    setAppliedFilter(false)
+    queryClient.invalidateQueries("listData");
+  };
   return (
     <MainContext.Provider
       value={{
-        //header
         posts,
         fetchListing,
         fetchMoreData,
+        handleSearch,
+        clearFilter,
+        appliedFilter
       }}
     >
       {props.children}
