@@ -2,17 +2,17 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useContext, useState } from "react";
 import mainContext from "../context/MainContext";
 import Link from "next/link";
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns';
 import BlogsSkeleton from "../components/skeletons/BlogsSkeleton";
 import { IoIosArrowDown } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
-
 import { FaSearch } from "react-icons/fa";
 
 export default function Test() {
   const { posts, fetchMoreData, fetchListing, handleSearch, clearFilter, appliedFilter } = useContext(mainContext);
-  const [selectValue, setSelectValue] = useState('')
-  const [searchValue, setSearchValue] = useState('')
+  const [selectValue, setSelectValue] = useState('title');
+  const [searchValue, setSearchValue] = useState('');
+  const [searchError, setSearchError] = useState(false);
 
   const handleSelectChange = (e) => {
     setSelectValue(e.target.value);
@@ -20,27 +20,35 @@ export default function Test() {
 
   const handleSearchChange = (e) => {
     setSearchValue(e.target.value);
+    setSearchError(false);
   };
+
   const onSearchClick = () => {
-    handleSearch(selectValue, searchValue);
+    if (searchValue.trim() === '') {
+      setSearchError(true);
+    } else {
+      handleSearch(selectValue, searchValue);
+      setSearchError(false);
+    }
   };
 
   const onClearFilterClick = () => {
-    setSelectValue('');
+    setSelectValue('title');
     setSearchValue('');
     clearFilter();
+    setSearchError(false);
   };
+
   return (
     <>
-      <div className=" dark:text-gray-900 pt-36 px-4 sm:px-12 flex items-center justify-center">
+      <div className="dark:text-gray-900 pt-36 px-4 sm:px-12 flex items-center justify-center">
         <div>
           <div className="flex flex-wrap justify-center -mx-4">
             <div className="w-full px-4">
               <div className="text-center mx-auto mb-7 lg:mb-20 max-w-[510px]">
-                <h2 className="font-bold text-4xl  sm:text-4xl text-gray-600  " style={{ 'lineHeight': '1' }}>
+                <h2 className="font-bold text-4xl sm:text-4xl text-gray-600" style={{ 'lineHeight': '1' }}>
                   Are you a passionate reader? Read Our Latest Blogs
                 </h2>
-
               </div>
             </div>
           </div>
@@ -53,7 +61,6 @@ export default function Test() {
                   value={selectValue}
                   onChange={handleSelectChange}
                 >
-                  <option value="" disabled>Select</option>
                   <option value="title">Title</option>
                   <option value="authorName">Author Name</option>
                   <option value="categories">Category</option>
@@ -61,54 +68,53 @@ export default function Test() {
                 </select>
                 <IoIosArrowDown className="h-7 w-7 mt-2 opacity-30" />
               </div>
-              <div className="flex bg-gray-100 p-4 space-x-5 rounded-lg">
+              <div className={`flex bg-gray-100 p-4 space-x-5 rounded-lg ${searchError ? 'border-2 border-red-400' : ''}`}>
                 <FaSearch className="h-6 w-6 opacity-30 sm:block hidden" />
                 <input
                   className="bg-gray-100 outline-none pr-32 text-xl"
                   type={selectValue == 'date' ? 'date' : 'text'}
                   placeholder="Enter Search Value here . . ."
                   value={searchValue}
+                  required
                   onChange={handleSearchChange}
                 />
-                {appliedFilter && <div
-                  className="bg-gray-400 py-3 px-3 text-white text-xl font-medium rounded-full hover:shadow-lg transition duration-300 cursor-pointer"
-                  onClick={onClearFilterClick}
-                >
-                  <span><RxCross1 /></span>
-                </div>}
-                {!appliedFilter && <div
-                  className="bg-blue-400 py-3 px-3 text-white text-xl sm:hidden block font-medium rounded-full hover:shadow-lg transition duration-300 cursor-pointer"
-                  onClick={() => {
-                    if (searchValue !== "" && selectValue !== "") {
-                      onSearchClick();
-                    }
-                  }}
-                >
-                  <FaSearch className="h-6 w-6 text-white" />
-                </div>}
+                {appliedFilter && (
+                  <div
+                    className="bg-gray-400 py-3 px-3 text-white text-xl font-medium rounded-full hover:shadow-lg transition duration-300 cursor-pointer"
+                    onClick={onClearFilterClick}
+                  >
+                    <span><RxCross1 /></span>
+                  </div>
+                )}
+                {searchError && <i class="fa-solid block sm:hidden mt-6 fa-circle-exclamation fa-xl" style={{ color: 'red' }}></i>}
+                {!appliedFilter && (
+                  <div
+                    className="bg-blue-400 py-3 px-3 text-white text-xl sm:hidden block font-medium rounded-full hover:shadow-lg transition duration-300 cursor-pointer"
+                    onClick={onSearchClick}
+                  >
+                    <FaSearch className="h-6 w-6 text-white" />
+                  </div>
+                )}
+                {searchError && <i class="fa-solid sm:block hidden mt-3 fa-circle-exclamation fa-xl" style={{ color: 'red' }}></i>}
               </div>
-              <button className="bg-blue-400 py-3 px-5 sm:block hidden text-white text-xl font-medium rounded-lg hover:shadow-lg transition duration-300 cursor-pointer" disabled={searchValue == "" && selectValue == ""} onClick={() => {
-                    if (searchValue !== "" && selectValue !== "" && !appliedFilter) {
-                      onSearchClick();
-                    }
-                  }}>
+              <button
+                className="bg-blue-400 py-3 px-5 sm:block hidden text-white text-xl font-medium rounded-lg hover:shadow-lg transition duration-300 cursor-pointer"
+                onClick={onSearchClick}
+              >
                 Search
               </button>
             </div>
           </div>
-          {posts.length === 0 && !fetchListing.isLoading && <img
-            src='/empty.gif'
-            className='h-auto'
-          />}
+          {posts.length === 0 && !fetchListing.isLoading && (
+            <img src='/empty.gif' className='h-auto' />
+          )}
           {<InfiniteScroll
-            dataLength={posts?.length || 0} //This is important field to render the next data
+            dataLength={posts?.length || 0}
             next={fetchMoreData}
             hasMore={fetchListing?.data?.length > 4}
             scrollableTarget="scrollableDiv"
             loader={
-              <div className="flex justify-center">
-
-              </div>
+              <div className="flex justify-center"></div>
             }
             endMessage={
               <p className="text-center py-2">
@@ -116,13 +122,11 @@ export default function Test() {
               </p>
             }
           >
-            <section className="pt-3 lg:pt-12 pb-10  lg:pb-20">
+            <section className="pt-3 lg:pt-12 pb-10 lg:pb-20">
               <div className="container m-auto">
-
                 <div className="flex flex-wrap mx-4 justify-center sm:mx-6">
                   {posts.length !== 0 &&
                     posts.map((list) => {
-
                       const date = parseISO(list.createdAt);
                       const formattedDate = format(date, 'do MMM, yyyy');
                       const maxdec = 20;
@@ -146,31 +150,24 @@ export default function Test() {
                                 {formattedDate}
                               </span>
                               <h3 className="font-semibold text-lg sm:text-2xl lg:text-3xl mb-4 inline-block text-dark hover:text-primary">
-                                {title}
+                                {title && (title.length > 60 ? title.slice(0, 60) + " . . ." : title) || ""}
                               </h3>
                               <p className="text-lg sm:text-2xl text-body-color">
-                                {description}
+                                {description && (description.length > 120 ? description.slice(0, 120) + " . . ." : description) || ""}
                               </p>
                             </div>
                           </div>
                         </Link>
                       );
                     })}
-
-                  {
-                    fetchListing.isLoading || fetchListing.isFetching &&
-                    <>
-                      <BlogsSkeleton />
-                    </>
-                  }
+                  {(fetchListing.isLoading || fetchListing.isFetching) && (
+                    <BlogsSkeleton />
+                  )}
                 </div>
               </div>
             </section>
-
-
           </InfiniteScroll>}
         </div>
-
       </div>
     </>
   );

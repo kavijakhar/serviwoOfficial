@@ -9,9 +9,11 @@ const handler = async (req, res) => {
 
         let query = Blog.find().select('-content');
         if (categories) {
-          const categoryArray = categories.split(',').map(c => c.trim().toLowerCase());
-          query = query.where('category').in(categoryArray);
+          const categoryArray = categories.split(',').map(c => c.trim());
+          const regexArray = categoryArray.map(c => new RegExp(c, 'i')); // Create regex array with case-insensitive flag
+          query = query.where('category').in(regexArray);
         }
+        
         if (authorName) {
           const authorNameRegex = new RegExp(authorName, 'i');
           query = query.where('authorName').regex(authorNameRegex);
@@ -20,7 +22,7 @@ const handler = async (req, res) => {
           const specificDate = new Date(date);
           const startOfDay = new Date(specificDate.setHours(0, 0, 0, 0));
           const endOfDay = new Date(specificDate.setHours(23, 59, 59, 999));
-        
+
           query = query.where('createdAt').gte(startOfDay).lte(endOfDay);
         }
         if (title) {

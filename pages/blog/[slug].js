@@ -68,7 +68,7 @@ export default function Slug({ blog, error }) {
             <div className="flex justify-between">
               <div className="flex items-center mb-4 ">
                 <div className="flex items-center mr-4">
-                  <div className="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden bg-gray-100 rounded-full dark:bg-blue-600">
+                  <div className="relative inline-flex items-center justify-center w-14 h-14 overflow-hidden  rounded-full bg-blue-600">
                     <span className="font-medium text-white dark:text-white text-2xl">{getAuthorInitials(blog.authorName)}</span>
                   </div>
                   <span className="ml-2 text-gray-600 text-xl font-bold">{blog.authorName}</span>
