@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import MainContext from "./MainContext.js";
-import { useQuery, useQueryClient } from "react-query";
+import { useQuery } from "react-query";
 
 const MainStates = (props) => {
   const [posts, setPosts] = useState([]);
   const [lastNewsId, setLastNewsId] = useState("");
   const [searchParams, setSearchParams] = useState({ selectValue: "", searchValue: "" });
-  const queryClient = useQueryClient();
   const [appliedFilter, setAppliedFilter] = useState(false)
 
   const getAllPosts = async () => {
@@ -30,7 +29,7 @@ const MainStates = (props) => {
     refetchOnWindowFocus: false,
   });
 
-  const { isLoading, error, data, refetch, isFetching } = fetchListing;
+  const { isLoading, error, data, refetch } = fetchListing;
 
   const fetchMoreData = () => {
     if (data.length > 0) {
@@ -63,15 +62,16 @@ const MainStates = (props) => {
     setLastNewsId(""); // Reset the lastNewsId for new search
     setPosts([]); // Clear current posts
     setAppliedFilter(true)
-    queryClient.invalidateQueries("listData");
+    // queryClient.invalidateQueries("listData");
   };
   const clearFilter = () => {
     setSearchParams({ selectValue: "", searchValue: "" });
     setLastNewsId("");
     setPosts([]);
     setAppliedFilter(false)
-    queryClient.invalidateQueries("listData");
+    // queryClient.invalidateQueries("listData");
   };
+
   return (
     <MainContext.Provider
       value={{
